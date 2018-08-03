@@ -1,0 +1,74 @@
+/***NUEVO***/
+
+/****FONTS****
+font-family: 'Caveat', cursive;
+font-family: 'Luckiest Guy', cursive;
+font-family: 'Boogaloo', cursive;
+*/
+body {
+    background-color: #c0c5ce;
+}
+
+
+img.icon {
+    text-align: center;
+    width: 10px;
+} 
+
+h2 {
+    color: rgb(214, 29, 29);
+    font-family: 'Luckiest Guy', cursive;
+    text-align: center;
+}
+
+.titleContainer {
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+}
+
+input {
+    color:  rgb(254, 61, 0);
+}
+
+::placeholder { 
+    color:rgb(254, 61, 0); 
+}
+
+.inputContainer {
+    margin: 8% auto;
+    text-align: center;
+    width: 100%;
+}
+
+.btn {
+    background-color: rgb(255, 212, 0);
+}
+
+.btn:focus{ 
+    background-color: rgb(254, 61, 0);
+  }
+
+  .container {
+    width: 65%;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #edecec;
+    padding: 4%;
+}
+
+#response-container {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    background-color:white;
+    padding: 10%;
+}
+
+tr{
+
+}
+
+td {
+   
+}
