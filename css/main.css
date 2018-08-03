@@ -69,3 +69,16 @@ td {
     font-family: 'Boogaloo', cursive;
     font-size: 2em;
 }
+
+#poke {
+    width: 65%;
+    margin: 0 auto;
+    text-align: center;
+    background-color:white;
+    padding: 10%;
+}
+
+.hiden {
+    display:none;
+}
+
