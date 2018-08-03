@@ -65,10 +65,7 @@ input {
     padding: 10%;
 }
 
-tr{
-
-}
-
 td {
-   
+    font-family: 'Boogaloo', cursive;
+    font-size: 2em;
 }

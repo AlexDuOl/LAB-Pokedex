@@ -18,29 +18,43 @@
             <img class="col s1 m3 l2 offset-s2 icon" src="css/assetes/image/DefenselessPoisedArizonaalligatorlizard.gif" alt="">
             <h2 class="col s6 m6 l8">Pokedex</h2>
             <img class="col s1 m3 l2 offset-s2 icon" src="css/assetes/image/E9EHO5l.gif" alt="">
-        </div>       
+        </div>
+        <!--Input que recibe el nombre del pokemon a buscar-->       
         <div class="row inputContainer">
-            <div class="col s6 m6 l6 offset-s1 input-field">
+            <div class="col s6 m6 l6 offset-s4 input-field">
                 <input id="txtName" class="form-contol" type="text" placeholder="Pokemon Name">
             </div>
             <div class="col s2 m3 l4">
-                <button id="searching-allPokemon" class="btn btn-default" type="button" onclick="seeAll()">Go!!</button>
+                <button id="searching-Pokemon" class="btn btn-default modal-trigger" href="#modal1" type="button">Go!!</button>
             </div>
         </div>
     </div>
-    <!--Contenedor con imagenes-->
+    <!--Contenedor en donde se guardan las imagenes-->
+    <div id="poke">
+
+    </div>
     <div class="container">
         <table id="response-container" class="responsive-table centered">
             <tbody class="table">
                 <tr>
                     <td></td>
                     <td></td>
-                    <td></td>
-                    <td></td>
                 </tr>
             </tbody>
         </table>
     </div> 
+
+    <!-- Modal Structure 
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>Modal Header</h4>
+            <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+    </div>-->
+        
     <script
   src="https://code.jquery.com/jquery-1.12.4.min.js"
   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
