@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +12,7 @@
     <link rel="icon" href="./css/assetes/image/favicon.ico" type="image/x-icon">
     <link href="css/main.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
+
 <body>
     <!--Contenedor para el titulo e imagenes con boton de busqueda-->
     <div class="container">
@@ -19,7 +21,7 @@
             <h2 class="col s6 m6 l8">Pokedex</h2>
             <img class="col s1 m3 l2 offset-s2 icon" src="css/assetes/image/E9EHO5l.gif" alt="">
         </div>
-        <!--Input que recibe el nombre del pokemon a buscar-->       
+        <!--Input que recibe el nombre del pokemon a buscar-->
         <div class="row inputContainer">
             <div class="col s6 m6 l6 offset-s4 input-field">
                 <input id="txtName" class="form-contol" type="text" placeholder="Pokemon Name">
@@ -29,17 +31,22 @@
             </div>
         </div>
     </div>
-    <!--Contenedor en donde se guardan las imagenes-->
-    <div id="poke" class="hiden">
-        <!-- <p></p>
-        <p></p>
-        <p></p>
-        <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul> -->
+    <!--Contenedor en donde se guardan los datos por cada Pokemon-->
+    <div id="poke" class="row hiden">
+        <!-- <div class="col s8 m6 l6 infoPok">
+            <p><img src= 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${data.id}.png'><p>           
+            <h5 class="col s2 m4 l4">Nombre:  ${namePok}</h5>
+            <h5 class="col s1 m1 l1 perfil">Perfil</h5>
+            <h6 class="col s1 m1 l1>Peso:  ${weightPok}</h6>
+            <h6 class="col s2 m4 l4">Abilidades:</h6>            
+        </div>
+        <div class="col s4 m6 l6 abilitiesPok">
+            <ulclass="col s4 m26l6">   
+                <li>${nameAbility}</li>
+            </ul>
+        </div>-->
     </div>
+    <!--Contenedor en donde se guardan las imagenes-->
     <div class="container">
         <table id="response-container" class="responsive-table centered">
             <tbody class="table">
@@ -49,23 +56,9 @@
                 </tr>
             </tbody>
         </table>
-    </div> 
-
-    <!-- Modal Structure 
-    <div id="modal1" class="modal">
-        <div class="modal-content">
-            <h4>Modal Header</h4>
-            <p>A bunch of text</p>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-        </div>
-    </div>-->
-        
-    <script
-  src="https://code.jquery.com/jquery-1.12.4.min.js"
-  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
-  crossorigin="anonymous"></script>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
     <script src="js/app.js"></script>
 </body>
+
 </html>

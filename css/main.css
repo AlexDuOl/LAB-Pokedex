@@ -1,19 +1,20 @@
 /***NUEVO***/
 
+
 /****FONTS****
 font-family: 'Caveat', cursive;
 font-family: 'Luckiest Guy', cursive;
 font-family: 'Boogaloo', cursive;
 */
+
 body {
     background-color: #c0c5ce;
 }
 
-
 img.icon {
     text-align: center;
     width: 10px;
-} 
+}
 
 h2 {
     color: rgb(214, 29, 29);
@@ -28,11 +29,11 @@ h2 {
 }
 
 input {
-    color:  rgb(254, 61, 0);
+    color: rgb(254, 61, 0);
 }
 
-::placeholder { 
-    color:rgb(254, 61, 0); 
+::placeholder {
+    color: rgb(254, 61, 0);
 }
 
 .inputContainer {
@@ -45,11 +46,11 @@ input {
     background-color: rgb(255, 212, 0);
 }
 
-.btn:focus{ 
+.btn:focus {
     background-color: rgb(254, 61, 0);
-  }
+}
 
-  .container {
+.container {
     width: 65%;
     margin: 0 auto;
     text-align: center;
@@ -61,7 +62,7 @@ input {
     width: 90%;
     margin: 0 auto;
     text-align: center;
-    background-color:white;
+    background-color: white;
     padding: 10%;
 }
 
@@ -71,14 +72,24 @@ td {
 }
 
 #poke {
-    width: 65%;
+    background-color: #e84848;
+    height: 50%;
     margin: 0 auto;
+    padding: 0;
     text-align: center;
-    background-color:white;
-    padding: 10%;
+    width: 65%;
 }
 
 .hiden {
-    display:none;
+    display: none;
 }
 
+.perfil {
+    background-color: white;
+}
+
+h5,
+h6,
+li {
+    font-family: 'Boogaloo', cursive;
+}

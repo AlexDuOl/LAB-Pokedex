@@ -1,77 +1,81 @@
-$(document).ready(function(){
-        dir = "https://pokeapi.co/api/v2/pokedex/1?limit=806"
-   
-       $.ajax({
-           url:dir,
-           onError:function (err) {
-               alert("No se ha podido cargar la informacion");            
-           },
-   
-       }).done(function (data){
-           console.log(data);
-           
-           let arrayPokemon = data.pokemon_entries;
-            
-               arrayPokemon.forEach(function(element){
-               let name = element.pokemon_species.name;
-               let number = element.entry_number;
-               let photo = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${number}.png`;
-               
-               $("#response-container").append(template(name, photo));
-   
-           });
-               
-       });
-       const template = function (name, photo) {
-           const templatePok = `<tr>
+$(document).ready(function() {
+    dir = "https://pokeapi.co/api/v2/pokedex/1?limit=806" //Obteniendo data de la url para todos los Pokemones
+
+    $.ajax({
+        url: dir,
+        onError: function(err) {
+            alert("No se ha podido cargar la informacion");
+        },
+
+    }).done(function(data) {
+        //console.log(data);
+
+        let arrayPokemon = data.pokemon_entries; //Entrando al array y obteniendo los datos necesarios
+
+        arrayPokemon.forEach(function(element) {
+            let name = element.pokemon_species.name;
+            let number = element.entry_number;
+            let photo = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${number}.png`;
+
+            $("#response-container").append(template(name, photo)); //Asignando la dtaa al contenedor
+
+        });
+
+    });
+    const template = function(name, photo) { //Colocando en el template los resultados
+        const templatePok = `<tr>
                        <td><img src="${photo}"></td>
                        <td>${name}</td>
-                       </tr>`             
-           return templatePok; 
-              
-       }
+                       </tr>`
+        return templatePok;
 
-          
-        $("#searching-Pokemon").click(function() {
+    }
 
-            dir = "https://pokeapi.co/api/v2/pokemon/1/"
-   
-       $.ajax({
-           url:dir,
-           onError:function (err) {
-               alert("No se ha podido cargar la informacion");            
-           },
 
-   
-       }).done(function (data){
-           let namePok = data.name;
-           let abilitiePok = data.abilities;
-           let weightPok = data.weight;
-           $( "#poke" ).removeClass( "hiden" )
-           console.log(data);
+    $("#searching-Pokemon").click(function() { //Fincion para buscar por cada Pokemon
+        dir = "https://pokeapi.co/api/v2/pokemon/"
 
-           $('#poke').append(`
-           <img src= 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${data.id}.png'>
-           <p>${namePok}</p>
-           <p>${weightPok}</p>`);
+        $.ajax({
+            url: dir,
+            onError: function(err) {
+                alert("No se ha podido cargar la informacion");
+            },
 
-           abilitiePok.forEach(function(ability){
-             let slot = ability.slot;
-             let is_hidden = ability.is_hidden;
-             let nameAbility = ability.ability.name;
-*******POner nombres en LI Y ULL********************
-           
-           $('#poke').append(`
-           <p>${nameAbility}</p>
-           <ul>   
-                <li>${slot}</li>
-                <li>${is_hidden}</li>                
-            </ul>`);
-           $('#poke').removeClass('.hiden');
+
+        }).done(function(data) {
+            //console.log(data);
+            let namePok = data.name;
+            let abilitiePok = data.abilities;
+            let weightPok = data.weight;
+
+            function validate() {
+                let txtName = $("#txtName").val();
+                return (txtName === namePok)
+            }
+
+            $("#poke").removeClass("hiden");
+
+            if (validate) {
+                $('#poke').append(`
+                <p><img src= 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${data.id}.png'><p>           
+                <h5>Nombre:  ${namePok}</h5>
+                <h5 class="perfil">Perfil</h5>
+                <h6>Peso:  ${weightPok}</h6>
+                <h6>Abilidades:</h6>
+                `);
+
+                abilitiePok.forEach(function(ability) {
+                    let nameAbility = ability.ability.name;
+
+                    $('#poke').append(`
+                      <ul>   
+                          <li>${nameAbility}</li>
+                      </ul>`);
+                    $('#poke').removeClass('.hiden');
+                })
+            } else {
+                alert("Pokemon no localizado")
+            }
         })
-
-
     })
-})
-
 })
