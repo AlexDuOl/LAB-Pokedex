@@ -32,38 +32,66 @@ $(document).ready(function() {
     }
 
     $("#searching-Pokemon").click(function() { //Fincion para buscar por cada Pokemon
-        dir = "https://pokeapi.co/api/v2/pokemon/1/"
+
+        dir = "https://pokeapi.co/api/v2/pokemon/?limit=806"
 
         $.ajax({
             url: dir,
             onError: function(err) {
-                alert("No se ha podido cargar la informacion");
+                alert(err);
             },
+
         }).done(function(data) {
             //console.log(data);
-            let namePok = data.name;
-            let abilitiePok = data.abilities;
+            let resultsPok = data.results;
             let weightPok = data.weight;
+            let photoPok = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${data.id}.png`;
+            //console.log(resultsPok);
 
-            $("#poke").removeClass("hiden");
+            resultsPok.forEach(function(element) {
+                let namePok = element.name;
+                let urlPok = element.url;
+                let abilitiePok = data.abilities;
+                $("#poke").removeClass("hiden");
+                console.log(namePok);
+                //console.log(urlPok);
 
-            $('#poke').append(`
-                <p><img src= 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${data.id}.png'><p>           
-                <h5>Nombre:  ${namePok}</h5>
-                <h5 class="perfil">Perfil</h5>
-                <h6>Peso:  ${weightPok}</h6>
-                <h6>Abilidades:</h6>
-                `);
 
-            abilitiePok.forEach(function(ability) {
-                let nameAbility = ability.ability.name;
-                $('#poke').append(`
+                /*&& (urlPok !== photoPok))*/
+
+                if (namePok === $("#txtName").val()) {
+
+                    $('#poke').append(`
+                    <p><img src="${photoPok}"><p>           
+                    <h5>Nombre:  ${namePok}</h5>
+                    <h5 class="perfil">Perfil</h5>
+                    <h6>Peso:  ${weightPok}</h6>
+                    <h6>Abilidades:</h6>
+                    `);
+
+                    abilitiePok.forEach(function(ability) {
+                        let nameAbility = ability.ability.name;
+
+                        $('#poke').append(`
                       <ul>   
                           <li>${nameAbility}</li>
                       </ul>`);
-                $('#poke').removeClass('.hiden');
+                        $('#poke').removeClass('.hiden');
+
+                    })
+                } else {
+                    alert("Pokemon no encontrado")
+
+
+
+                }
+
+
+
             })
+
 
         })
     })
+
 })
