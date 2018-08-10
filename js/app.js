@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    dir = "https://pokeapi.co/api/v2/pokedex/1?limit=806" //Obteniendo data de la url para todos los Pokemones
+    dir = "https://pokeapi.co/api/v2/pokedex/1?limit=20" //Obteniendo data de la url para todos los Pokemones
 
     $.ajax({
         url: dir,
@@ -32,8 +32,10 @@ $(document).ready(function() {
     }
 
     $("#searching-Pokemon").click(function() { //Fincion para buscar por cada Pokemon
-        dir = "https://pokeapi.co/api/v2/pokemon/1/"
-
+        dir = `https://pokeapi.co/api/v2/pokemon/${$("#txtName").val()}`
+        // Corrección de endpoint para que en la busqueda se obtenga la información de cada pokemón buscado.
+        // Anteriormente solo se obtenía la información para el pokemon #1 Bulbasaur 
+        $("#poke").html("")
         $.ajax({
             url: dir,
             onError: function(err) {
@@ -52,8 +54,9 @@ $(document).ready(function() {
                 <h5>Nombre:  ${namePok}</h5>
                 <h5 class="perfil">Perfil</h5>
                 <h6>Peso:  ${weightPok}</h6>
-                <h6>Abilidades:</h6>
+                <h6>Habilidades:</h6>
                 `);
+            //Correción de ortografía: Habilidades*  
 
             abilitiePok.forEach(function(ability) {
                 let nameAbility = ability.ability.name;
